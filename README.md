@@ -4,14 +4,17 @@ Official downloads and auto-update feed for **Bat Cave**, the personal planner d
 
 ## Download
 
-Grab the latest installer for your platform from the [Releases page](https://github.com/sensayousef/batcave-releases/releases/latest):
+Open the **[latest release](https://github.com/sensayousef/batcave-releases/releases/latest)** and click the file for your system:
 
-- **Windows** — `Bat.Cave_x.y.z_x64-setup.exe`
-- **macOS** (Apple Silicon + Intel) — `Bat.Cave_x.y.z_universal.dmg`
-- **Linux** — `.AppImage` (auto-updates) or `.deb` / `.rpm`
+- **Windows:** **Bat Cave for Windows (installer)**. Run it after downloading. Because the installer is not code-signed yet, Windows may show "Windows protected your PC" the first time. Click **More info**, then **Run anyway**.
+- **Linux:** **Bat Cave for Linux (AppImage)**.
+
+That's the only file you need. Ignore "Update file" (the app reads it) and "Source code" (GitHub adds it automatically).
+
+A macOS version is coming later.
 
 ## Updates
 
-The app updates itself: it checks this repository on startup and offers to install new versions in place. No manual reinstall needed (Windows, macOS, and Linux AppImage).
+Bat Cave updates itself. On startup it checks this repository and offers to install a new version in place, with no manual reinstall needed.
 
-> Source code is developed in a private repository; this repo only hosts release artifacts and the update manifest (`latest.json`).
+> Source code is developed in a private repository. This repo only hosts release downloads and the update feed.
