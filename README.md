@@ -1,20 +1,13 @@
-# Bat Cave — Releases
+# Bat Cave
 
-Official downloads and auto-update feed for **Bat Cave**, the personal planner desktop app.
+A personal planner that lives on top of your markdown vault. Journal, track projects, and chat with Alfred, who knows your notes.
 
-## Download
+## ⬇️ [Download Bat Cave](https://sensayousef.github.io/batcave-releases/)
 
-Open the **[latest release](https://github.com/sensayousef/batcave-releases/releases/latest)** and click the file for your system:
+Windows and Linux. A macOS version is coming later.
 
-- **Windows:** **Bat Cave for Windows (installer)**. Run it after downloading. Because the installer is not code-signed yet, Windows may show "Windows protected your PC" the first time. Click **More info**, then **Run anyway**.
-- **Linux:** **Bat Cave for Linux (AppImage)**.
+Bat Cave updates itself: when a new version comes out, the app offers to install it.
 
-That's the only file you need. Ignore "Update file" (the app reads it) and "Source code" (GitHub adds it automatically).
+---
 
-A macOS version is coming later.
-
-## Updates
-
-Bat Cave updates itself. On startup it checks this repository and offers to install a new version in place, with no manual reinstall needed.
-
-> Source code is developed in a private repository. This repo only hosts release downloads and the update feed.
+*This repository hosts the download page and release files. The app's source code is private and is not stored here.*

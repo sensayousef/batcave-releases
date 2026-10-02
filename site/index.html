@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bat Cave — Download</title>
+  <meta name="description" content="Bat Cave is a personal planner that lives on top of your markdown vault. Journal, track projects, and chat with Alfred, who knows your notes. Download for Windows or Linux.">
+  <meta property="og:title" content="Bat Cave — your planner, on your own notes">
+  <meta property="og:description" content="Journal, track projects, and chat with Alfred, who knows your notes. Free download for Windows and Linux.">
+  <meta property="og:image" content="https://sensayousef.github.io/batcave-releases/icon.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0a10;
+      --surface: #15131d;
+      --surface-raised: #1c1a27;
+      --line: #2a2738;
+      --text: #f4f1ea;
+      --muted: #a7a2b4;
+      --gold: #f5c542;
+      --gold-deep: #c99a1c;
+      --on-gold: #1a1404;
+      --radius-card: 18px;
+      --radius-pill: 999px;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --font: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(60rem 36rem at 50% -12rem, rgba(245, 197, 66, 0.13), transparent 70%),
+        var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: clamp(3rem, 9vh, 6rem) 16px 3rem;
+    }
+
+    .brand { display: flex; align-items: center; gap: 0.9rem; }
+    .brand img { width: 56px; height: 56px; border-radius: 14px; box-shadow: 0 8px 30px rgba(245, 197, 66, 0.18); }
+    .brand span { font-weight: 800; font-size: 1.15rem; letter-spacing: 0.01em; }
+
+    h1 {
+      margin: 2.2rem 0 1rem;
+      font-size: clamp(2.3rem, 1.4rem + 4.2vw, 3.9rem);
+      line-height: 1.04;
+      letter-spacing: -0.035em;
+      font-weight: 800;
+    }
+    h1 em { font-style: normal; color: var(--gold); }
+
+    .lede { margin: 0; max-width: 34rem; font-size: 1.08rem; color: var(--muted); }
+
+    .features { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.6rem 0 0; padding: 0; list-style: none; }
+    .features li {
+      padding: 0.35rem 0.85rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .downloads { display: grid; gap: 0.9rem; margin: 2.8rem 0 0; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+
+    .download {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.15rem 1.3rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: var(--surface);
+      color: var(--text);
+      text-decoration: none;
+      transition: transform 220ms var(--ease), border-color 220ms var(--ease), background 220ms var(--ease);
+    }
+    .download:hover { transform: translateY(-2px); border-color: #4a4560; background: var(--surface-raised); }
+    .download:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+    .download:active { transform: translateY(0); }
+    .download svg { flex: none; width: 30px; height: 30px; }
+    .download strong { display: block; font-size: 1.05rem; }
+    .download small { display: block; color: var(--muted); font-size: 0.83rem; }
+
+    .download.primary {
+      background: linear-gradient(180deg, var(--gold), var(--gold-deep));
+      border-color: transparent;
+      color: var(--on-gold);
+      box-shadow: 0 14px 40px -12px rgba(245, 197, 66, 0.55);
+    }
+    .download.primary small { color: rgba(26, 20, 4, 0.72); }
+    .download.primary:hover { background: linear-gradient(180deg, #ffd45e, var(--gold)); }
+
+    .version { margin: 1rem 0 0; font-size: 0.85rem; color: var(--muted); }
+
+    .notes { margin: 2.6rem 0 0; display: grid; gap: 0.9rem; }
+    .note {
+      margin: 0;
+      padding: 1rem 1.2rem;
+      border-left: 3px solid var(--gold);
+      border-radius: 0 12px 12px 0;
+      background: var(--surface);
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    .note b { color: var(--text); }
+
+    footer { margin-top: 3.5rem; font-size: 0.8rem; color: #6f6a7d; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .download { transition: none; }
+      .download:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="brand">
+      <img src="icon.png" alt="" width="56" height="56">
+      <span>Bat Cave</span>
+    </div>
+
+    <h1>Your planner, built on <em>your own notes</em>.</h1>
+    <p class="lede">Bat Cave lives on top of your markdown vault. Journal every day, track your projects, and chat with Alfred, an assistant who actually knows your notes.</p>
+
+    <ul class="features" aria-label="Highlights">
+      <li>Daily journal</li>
+      <li>Plain markdown vault</li>
+      <li>Alfred, your AI assistant</li>
+      <li>Updates itself</li>
+    </ul>
+
+    <section class="downloads" aria-label="Download Bat Cave">
+      <a class="download" id="download-windows" data-os="windows"
+         href="https://github.com/sensayousef/batcave-releases/releases/latest">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M3 5.1 10.4 4v7.2H3V5.1Zm0 13.8 7.4 1.1v-7.1H3v6Zm8.2 1.2L21 21.5V12.9h-9.8v7.2Zm0-16.2v7.3H21V2.5l-9.8 1.4Z"/></svg>
+        <span><strong>Download for Windows</strong><small>Windows 10 and 11 · 64-bit installer</small></span>
+      </a>
+      <a class="download" id="download-linux" data-os="linux"
+         href="https://github.com/sensayousef/batcave-releases/releases/latest">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2c-2.3 0-3.6 1.9-3.6 4.6 0 1.4.3 2.3-.6 3.7-1 1.6-2.9 3.9-2.9 6.4 0 .7.2 1.3.5 1.8-.9.3-1.6.8-1.6 1.6 0 1.2 1.6 1.6 3.4 1.8 1.2.1 2-.6 2.6-.9.6.1 1.5.2 2.2.2s1.6-.1 2.2-.2c.6.3 1.4 1 2.6.9 1.8-.2 3.4-.6 3.4-1.8 0-.8-.7-1.3-1.6-1.6.3-.5.5-1.1.5-1.8 0-2.5-1.9-4.8-2.9-6.4-.9-1.4-.6-2.3-.6-3.7C15.6 3.9 14.3 2 12 2Zm-1.6 4.1c.4 0 .7.5.7 1.1 0 .3-.1.5-.2.7l-.8.3c-.2-.2-.3-.6-.3-1 0-.6.3-1.1.6-1.1Zm3.2 0c.4 0 .7.5.7 1.1 0 .4-.1.7-.3 1l-.8-.3c-.1-.2-.2-.4-.2-.7 0-.6.3-1.1.6-1.1ZM12 8.6c.9 0 2 .6 2 1 0 .3-1 1.1-2 1.1s-2-.8-2-1.1c0-.4 1.1-1 2-1Z"/></svg>
+        <span><strong>Download for Linux</strong><small>AppImage · 64-bit, any distro</small></span>
+      </a>
+    </section>
+    <p class="version" id="version" aria-live="polite">Free download.</p>
+
+    <div class="notes">
+      <p class="note"><b>First install on Windows:</b> Windows may show “Windows protected your PC” because the installer isn’t code-signed yet. Click <b>More info</b>, then <b>Run anyway</b>. You’ll only see this once.</p>
+      <p class="note"><b>On Linux:</b> make the AppImage executable (right-click → Properties → “Allow executing”, or <code>chmod +x</code>), then open it.</p>
+      <p class="note"><b>Using a Mac?</b> A macOS version is on the way.</p>
+    </div>
+
+    <footer>Bat Cave updates itself. When a new version is out, the app offers to install it.</footer>
+  </main>
+
+  <script>
+    // The update feed (latest.json) is the single source of truth for the
+    // current version and its installer URLs; the links above fall back to the
+    // GitHub release page if it cannot be read.
+    (function () {
+      var buttons = {
+        windows: document.getElementById("download-windows"),
+        linux: document.getElementById("download-linux")
+      };
+      var feedKeys = { windows: "windows-x86_64", linux: "linux-x86_64" };
+
+      var platform = ((navigator.userAgentData && navigator.userAgentData.platform) || navigator.userAgent || "").toLowerCase();
+      var visitorOs = platform.indexOf("linux") !== -1 && platform.indexOf("android") === -1 ? "linux" : "windows";
+      buttons[visitorOs].classList.add("primary");
+      if (visitorOs === "linux") buttons.linux.parentNode.insertBefore(buttons.linux, buttons.windows);
+
+      fetch("latest.json", { cache: "no-store" })
+        .then(function (response) {
+          if (!response.ok) throw new Error("feed unavailable: " + response.status);
+          return response.json();
+        })
+        .then(function (feed) {
+          Object.keys(buttons).forEach(function (os) {
+            var entry = feed.platforms && feed.platforms[feedKeys[os]];
+            if (entry && entry.url) buttons[os].href = entry.url;
+          });
+          if (feed.version) {
+            document.getElementById("version").textContent = "Version " + feed.version + " · Free download.";
+          }
+        })
+        .catch(function (error) {
+          console.warn("Bat Cave download page: using release-page links", error);
+        });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+# Publishes the download page (site/) to GitHub Pages and owns the app's
+# update feed: https://sensayousef.github.io/batcave-releases/latest.json
+#
+# Release flow: the private source repo's CI uploads installers + latest.json
+# to a DRAFT release here (drafts are invisible to the public). Publishing the
+# draft is the ship action and triggers this workflow, which moves latest.json
+# off the release page into site/ (so visitors only see the installers),
+# commits it, and redeploys. Installed apps (v0.2.1+) read the feed from Pages.
+# The github-pages environment allows deploys from `main` and from `v*` tags
+# (release events run on the tag ref).
+name: Download page and update feed
+
+on:
+  release:
+    types: [published]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # Always main: a release event would otherwise check out the tag (detached
+      # HEAD), and the feed commit below could not be pushed.
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      # Only for the release that is now "Latest": re-publishing an older release
+      # must never roll the feed back.
+      - name: Move latest.json from the release into the site
+        if: github.event_name == 'release'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+          RELEASE_ID: ${{ github.event.release.id }}
+        run: |
+          set -euo pipefail
+          latest_tag=$(gh api "repos/$GITHUB_REPOSITORY/releases/latest" -q .tag_name)
+          if [ "$latest_tag" != "$TAG" ]; then
+            echo "Published $TAG is not the latest release ($latest_tag); feed left unchanged."
+            exit 0
+          fi
+          asset_id=$(gh api "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID/assets" -q '.[] | select(.name=="latest.json") | .id')
+          if [ -z "$asset_id" ]; then
+            echo "::error::$TAG has no latest.json asset; the update feed was not updated."
+            exit 1
+          fi
+          gh api -H "Accept: application/octet-stream" "repos/$GITHUB_REPOSITORY/releases/assets/$asset_id" > feed.json
+          node -e '
+            const m = JSON.parse(require("fs").readFileSync("feed.json", "utf8"));
+            if (m.version !== process.env.TAG.replace(/^v/, "")) throw new Error(`feed version ${m.version} does not match ${process.env.TAG}`);
+            if (!m.platforms || !m.platforms["windows-x86_64"]) throw new Error("feed has no windows-x86_64 entry");
+          '
+          mv feed.json site/latest.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/latest.json
+          git commit -m "feed: $TAG"
+          git push
+          gh api -X DELETE "repos/$GITHUB_REPOSITORY/releases/assets/$asset_id"
+          echo "Feed now serves $TAG; latest.json removed from the release page."
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
