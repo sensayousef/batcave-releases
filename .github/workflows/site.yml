@@ -3,11 +3,13 @@
 #
 # Release flow: the private source repo's CI uploads installers + latest.json
 # to a DRAFT release here (drafts are invisible to the public). Publishing the
-# draft is the ship action and triggers this workflow, which moves latest.json
+# draft is the ship action and triggers the `feed` job, which moves latest.json
 # off the release page into site/ (so visitors only see the installers),
-# commits it, and redeploys. Installed apps (v0.2.1+) read the feed from Pages.
-# The github-pages environment allows deploys from `main` and from `v*` tags
-# (release events run on the tag ref).
+# commits it to main, and then dispatches this workflow on main to deploy.
+#
+# Deploys happen ONLY from main. A Pages deployment made from a release event
+# runs on the tag ref; it reports success but never goes live (seen with
+# v0.2.1 on 2026-10-02), so the release path must not deploy itself.
 name: Download page and update feed
 
 on:
@@ -17,21 +19,17 @@ on:
     branches: [main]
   workflow_dispatch:
 
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  feed:
+    if: github.event_name == 'release'
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: write
+      actions: write
     steps:
       # Always main: a release event would otherwise check out the tag (detached
       # HEAD), and the feed commit below could not be pushed.
@@ -43,7 +41,6 @@ jobs:
       # Only for the release that is now "Latest": re-publishing an older release
       # must never roll the feed back.
       - name: Move latest.json from the release into the site
-        if: github.event_name == 'release'
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ github.event.release.tag_name }}
@@ -73,7 +70,24 @@ jobs:
           git commit -m "feed: $TAG"
           git push
           gh api -X DELETE "repos/$GITHUB_REPOSITORY/releases/assets/$asset_id"
-          echo "Feed now serves $TAG; latest.json removed from the release page."
+          # A push made with GITHUB_TOKEN does not start new runs, but a
+          # workflow_dispatch does; it deploys from main, which goes live.
+          gh workflow run site.yml --ref main --repo "$GITHUB_REPOSITORY"
+          echo "Feed committed for $TAG; deploy dispatched on main."
+
+  deploy:
+    if: github.event_name != 'release'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
