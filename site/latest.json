@@ -1,23 +1,23 @@
 {
-  "version": "0.2.0",
-  "notes": "Download the Windows setup executable (.exe) or the Linux AppImage below. Installed apps update to this version automatically.\n\nNote: the Windows installer is not yet code-signed, so Windows may show a one-time \"Windows protected your PC\" prompt — click \"More info\" then \"Run anyway\" to install. (macOS build coming later.)",
-  "pub_date": "2026-10-02T10:07:38.278Z",
+  "version": "0.2.1",
+  "notes": "Easiest way to download: **https://sensayousef.github.io/batcave-releases/**\n\n## Download\n\n- **Windows:** click **Bat Cave for Windows (installer)** below, then run the downloaded file.\n- **Linux:** click **Bat Cave for Linux (AppImage)** below.\n\nYou only need one of the two files below. \"Source code\" is added automatically by GitHub; it holds only this page's README, not the app.\n\nBat Cave updates itself: when a new version comes out, the app offers to install it.\n\n**First install on Windows:** the installer is not code-signed yet, so Windows may show \"Windows protected your PC\" once. Click **More info**, then **Run anyway**.\n\n*A macOS version is coming later.*",
+  "pub_date": "2026-10-02T13:17:55.926Z",
   "platforms": {
     "linux-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUaDhhZm1sYm1DQ0ozck5YUlhsNjhscDF4RXVpTnIyS2Q2bEtDYkphd2x5NVVyQzdiSUdOdjRmRWpvWVBHTkRzV21lL0VoZ0lydmppWjVNRlhncnV6aDFTNzZiQkZEZ0E0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkwOTM1NjQyCWZpbGU6QmF0IENhdmVfMC4yLjBfYW1kNjQuQXBwSW1hZ2UKZHgveVZCQWV3c1VRU0wzRDYvaDB3YUVWNStLMDlsbFVFZWNVeEJiNis3cmxUT3A1ODR3N2dXSHAxRzZjY3ZwNTEwNTMrWU5vYTdweE8xbEorcTI4Qnc9PQo=",
-      "url": "https://github.com/sensayousef/batcave-releases/releases/download/v0.2.0/Bat.Cave_0.2.0_amd64.AppImage"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUaDhhZm1sYm1DQ0lEdkRQRWpxcng2WHd4amRPK2x1cUFZWitseDQxS1lEbCs4WWZlS2lvaGp4S3ZtWFdISE9uTUp0dzV5WlNsLzhaY3JTNjZoUVVWdm4rK1ltUWVEOUFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkwOTQ2OTY2CWZpbGU6QmF0IENhdmVfMC4yLjFfYW1kNjQuQXBwSW1hZ2UKakNQemdOUHdSU1M1U0Z6dHQwTmVMcGYzMStlbDNrZUIzSXVoRGJwUU5oMVh3T2VjV3BuK0Z0WFUzeXY2Z01XQndnK0krYkh0U3p0V2pKbkt0S3A1QVE9PQo=",
+      "url": "https://github.com/sensayousef/batcave-releases/releases/download/v0.2.1/Bat.Cave_0.2.1_amd64.AppImage"
     },
     "linux-x86_64-appimage": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUaDhhZm1sYm1DQ0ozck5YUlhsNjhscDF4RXVpTnIyS2Q2bEtDYkphd2x5NVVyQzdiSUdOdjRmRWpvWVBHTkRzV21lL0VoZ0lydmppWjVNRlhncnV6aDFTNzZiQkZEZ0E0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkwOTM1NjQyCWZpbGU6QmF0IENhdmVfMC4yLjBfYW1kNjQuQXBwSW1hZ2UKZHgveVZCQWV3c1VRU0wzRDYvaDB3YUVWNStLMDlsbFVFZWNVeEJiNis3cmxUT3A1ODR3N2dXSHAxRzZjY3ZwNTEwNTMrWU5vYTdweE8xbEorcTI4Qnc9PQo=",
-      "url": "https://github.com/sensayousef/batcave-releases/releases/download/v0.2.0/Bat.Cave_0.2.0_amd64.AppImage"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUaDhhZm1sYm1DQ0lEdkRQRWpxcng2WHd4amRPK2x1cUFZWitseDQxS1lEbCs4WWZlS2lvaGp4S3ZtWFdISE9uTUp0dzV5WlNsLzhaY3JTNjZoUVVWdm4rK1ltUWVEOUFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkwOTQ2OTY2CWZpbGU6QmF0IENhdmVfMC4yLjFfYW1kNjQuQXBwSW1hZ2UKakNQemdOUHdSU1M1U0Z6dHQwTmVMcGYzMStlbDNrZUIzSXVoRGJwUU5oMVh3T2VjV3BuK0Z0WFUzeXY2Z01XQndnK0krYkh0U3p0V2pKbkt0S3A1QVE9PQo=",
+      "url": "https://github.com/sensayousef/batcave-releases/releases/download/v0.2.1/Bat.Cave_0.2.1_amd64.AppImage"
     },
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUaDhhZm1sYm1DQ0J4bFVsM2V5amxaWVU1aEY2N0p0UVlCMGtEa0cvbTZQWXMvSjBuM0xtL3ZzTTVFY2hwWGgyQUlwRWlqS0thenhBMnk0dmRJVkpzb0E3NXp2bWZIdlF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkwOTM1NjUyCWZpbGU6QmF0IENhdmVfMC4yLjBfeDY0LXNldHVwLmV4ZQpUN1h5aHBuYW5kdFliaXdDckhvUzAyamVVaGR3VFBUb1VDNUozOEhyOVo2TjVzUWxEby9sdEM1eGRORjhKQkFVMUhTQ1QzZFVDZklQeUY5Zy9tMkxCUT09Cg==",
-      "url": "https://github.com/sensayousef/batcave-releases/releases/download/v0.2.0/Bat.Cave_0.2.0_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUaDhhZm1sYm1DQ0VpSjlpdXA4ajVOclRSQ0NkTEtRVytxMk01MGsvSnV2eTVXTTNIcW91OHJCbk54ZE9HQUFFK1BjR0pYZ1luL01majJrT0JNRm9WOUhxTnN0RVhGNHdzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkwOTQ3MDczCWZpbGU6QmF0IENhdmVfMC4yLjFfeDY0LXNldHVwLmV4ZQpNaUJqSEFGU0xLUVFlWHZlbzhPNm1yQ2k2WnZuY1pINDJabWVaaEZNR2FQNGFQalVGSjQvTURvYTcxUXNBaWFIZGMvYUZ1Z0hnSjRVS29RbGJwRzdCQT09Cg==",
+      "url": "https://github.com/sensayousef/batcave-releases/releases/download/v0.2.1/Bat.Cave_0.2.1_x64-setup.exe"
     },
     "windows-x86_64-nsis": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUaDhhZm1sYm1DQ0J4bFVsM2V5amxaWVU1aEY2N0p0UVlCMGtEa0cvbTZQWXMvSjBuM0xtL3ZzTTVFY2hwWGgyQUlwRWlqS0thenhBMnk0dmRJVkpzb0E3NXp2bWZIdlF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkwOTM1NjUyCWZpbGU6QmF0IENhdmVfMC4yLjBfeDY0LXNldHVwLmV4ZQpUN1h5aHBuYW5kdFliaXdDckhvUzAyamVVaGR3VFBUb1VDNUozOEhyOVo2TjVzUWxEby9sdEM1eGRORjhKQkFVMUhTQ1QzZFVDZklQeUY5Zy9tMkxCUT09Cg==",
-      "url": "https://github.com/sensayousef/batcave-releases/releases/download/v0.2.0/Bat.Cave_0.2.0_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUaDhhZm1sYm1DQ0VpSjlpdXA4ajVOclRSQ0NkTEtRVytxMk01MGsvSnV2eTVXTTNIcW91OHJCbk54ZE9HQUFFK1BjR0pYZ1luL01majJrT0JNRm9WOUhxTnN0RVhGNHdzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkwOTQ3MDczCWZpbGU6QmF0IENhdmVfMC4yLjFfeDY0LXNldHVwLmV4ZQpNaUJqSEFGU0xLUVFlWHZlbzhPNm1yQ2k2WnZuY1pINDJabWVaaEZNR2FQNGFQalVGSjQvTURvYTcxUXNBaWFIZGMvYUZ1Z0hnSjRVS29RbGJwRzdCQT09Cg==",
+      "url": "https://github.com/sensayousef/batcave-releases/releases/download/v0.2.1/Bat.Cave_0.2.1_x64-setup.exe"
     }
   }
 }
